@@ -1,0 +1,5 @@
+stack.mod.wasm
+stack.mod.wat
+stack.opt.wasm
+stack.opt.wat
+stack.wasm
