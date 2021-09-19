@@ -41,6 +41,7 @@ jobs:
         make WASI_SYSROOT=$WASI_SYSROOT -C 04_messedup/ | tee results/04_messedup.txt
       env:
         WASI_SYSROOT: /opt/wasi-sdk/share/wasi-sysroot/
+        NO_COLOR: 1
 
     - name: Git commit and push
       run: |
