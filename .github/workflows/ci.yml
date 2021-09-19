@@ -29,9 +29,9 @@ jobs:
 
     - name: Run
       run: |
-        make test WASI_SYSROOT=$WASI_SYSROOT -C 01_const/
-        make test WASI_SYSROOT=$WASI_SYSROOT -C 02_const_overwirte/
-        make test WASI_SYSROOT=$WASI_SYSROOT -C 03_stack/
-        make test WASI_SYSROOT=$WASI_SYSROOT -C 04_messedup/
+        make WASI_SYSROOT=$WASI_SYSROOT -C 01_const/
+        make WASI_SYSROOT=$WASI_SYSROOT -C 02_const_overwirte/
+        make WASI_SYSROOT=$WASI_SYSROOT -C 03_stack/
+        make WASI_SYSROOT=$WASI_SYSROOT -C 04_messedup/
       env:
         WASI_SYSROOT: /opt/wasi-sdk/share/wasi-sysroot/
