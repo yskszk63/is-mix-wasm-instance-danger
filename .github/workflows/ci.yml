@@ -35,10 +35,10 @@ jobs:
     - name: Run
       run: |
         mkdir -p results
-        make WASI_SYSROOT=$WASI_SYSROOT -C 01_const/ | tee 01_const.txt
-        make WASI_SYSROOT=$WASI_SYSROOT -C 02_const_overwirte/ | tee 02_const_overwrite.txt
-        make WASI_SYSROOT=$WASI_SYSROOT -C 03_stack/ | tee 03_stack
-        make WASI_SYSROOT=$WASI_SYSROOT -C 04_messedup/ | tee 04_messedup
+        make WASI_SYSROOT=$WASI_SYSROOT -C 01_const/ | tee results/01_const.txt
+        make WASI_SYSROOT=$WASI_SYSROOT -C 02_const_overwirte/ | tee results/02_const_overwrite.txt
+        make WASI_SYSROOT=$WASI_SYSROOT -C 03_stack/ | tee results/03_stack.txt
+        make WASI_SYSROOT=$WASI_SYSROOT -C 04_messedup/ | tee results/04_messedup.txt
       env:
         WASI_SYSROOT: /opt/wasi-sdk/share/wasi-sysroot/
 
