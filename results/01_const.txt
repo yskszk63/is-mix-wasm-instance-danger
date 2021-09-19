@@ -2,11 +2,11 @@ make: Entering directory '/home/runner/work/is-mix-wasm-instance-danger/is-mix-w
 wat2wasm -o a.wasm a.wat
 deno run --allow-read /home/runner/work/is-mix-wasm-instance-danger/is-mix-wasm-instance-danger/01_const/run.ts
 Uint8Array(8) [
-  [33m0[39m, [33m0[39m, [33m0[39m, [33m0[39m,
-  [33m0[39m, [33m0[39m, [33m0[39m, [33m0[39m
+  0, 0, 0, 0,
+  0, 0, 0, 0
 ]
 Uint8Array(8) [
-  [33m72[39m, [33m69[39m, [33m76[39m, [33m76[39m,
-  [33m79[39m,  [33m0[39m,  [33m0[39m,  [33m0[39m
+  72, 69, 76, 76,
+  79,  0,  0,  0
 ]
 make: Leaving directory '/home/runner/work/is-mix-wasm-instance-danger/is-mix-wasm-instance-danger/01_const'

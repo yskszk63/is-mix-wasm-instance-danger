@@ -5,13 +5,13 @@ wasm2wat stack.opt.wasm > stack.opt.wat
 sed -e'$ i (export "global" (global 0))' stack.opt.wat > stack.mod.wat
 wat2wasm stack.mod.wat > stack.mod.wasm
 deno run --allow-read /home/runner/work/is-mix-wasm-instance-danger/is-mix-wasm-instance-danger/03_stack/run.ts
-[33m58368[39m [33m58368[39m
-[33m50176[39m [33m50176[39m
-[33m41984[39m [33m41984[39m
-[33m33792[39m [33m33792[39m
-[33m25600[39m [33m25600[39m
-[33m17408[39m [33m17408[39m
-[33m9216[39m [33m9216[39m
-[33m1024[39m [33m1024[39m
-[33m-7168[39m [33m-7168[39m
+58368 58368
+50176 50176
+41984 41984
+33792 33792
+25600 25600
+17408 17408
+9216 9216
+1024 1024
+-7168 -7168
 make: Leaving directory '/home/runner/work/is-mix-wasm-instance-danger/is-mix-wasm-instance-danger/03_stack'
