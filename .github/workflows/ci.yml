@@ -1,6 +1,11 @@
 name: Run
 
-on: push
+on:
+  push:
+    paths-ignore:
+    - 'results/**'
+  schedule:
+    - cron: '10 9 * * 1'
 
 jobs:
   run:
@@ -29,9 +34,18 @@ jobs:
 
     - name: Run
       run: |
-        make WASI_SYSROOT=$WASI_SYSROOT -C 01_const/
-        make WASI_SYSROOT=$WASI_SYSROOT -C 02_const_overwirte/
-        make WASI_SYSROOT=$WASI_SYSROOT -C 03_stack/
-        make WASI_SYSROOT=$WASI_SYSROOT -C 04_messedup/
+        mkdir -p results
+        make WASI_SYSROOT=$WASI_SYSROOT -C 01_const/ | tee 01_const.txt
+        make WASI_SYSROOT=$WASI_SYSROOT -C 02_const_overwirte/ | tee 02_const_overwrite.txt
+        make WASI_SYSROOT=$WASI_SYSROOT -C 03_stack/ | tee 03_stack
+        make WASI_SYSROOT=$WASI_SYSROOT -C 04_messedup/ | tee 04_messedup
       env:
         WASI_SYSROOT: /opt/wasi-sdk/share/wasi-sysroot/
+
+    - name: Git commit and push
+      run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add results/
+        git commit -m 'Update results.'
+        git push
