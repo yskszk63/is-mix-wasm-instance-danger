@@ -1,0 +1,32 @@
+name: Run
+
+on: push
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y --no-install-recommends curl ca-certificates patch make binaryen wabt
+        sudo mkdir /opt/wasi-sdk
+        curl -sSfL $WASI_SDK_URL | sudo tar zxf - -C /opt/wasi-sdk --strip-components 1
+        echo /opt/wasi-sdk/bin >> $GITHUB_PATH
+      env:
+        WASI_SDK_URL: 'https://github.com/WebAssembly/wasi-sdk/releases/download/wasi-sdk-12/wasi-sdk-12.0-linux.tar.gz'
+
+    - name: Version
+      run: |
+        clang --version
+        wasm2wat --version
+        wasm-opt --version
+
+    - name: Run
+      run: |
+        make test -C 01_const/
+        make test -C 02_const_overwirte/
+        make test -C 03_stack/
+        make test -C 04_messedup/
