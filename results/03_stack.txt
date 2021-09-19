@@ -1,0 +1,17 @@
+make: Entering directory '/home/runner/work/is-mix-wasm-instance-danger/is-mix-wasm-instance-danger/03_stack'
+clang --target=wasm32-wasi --sysroot=/opt/wasi-sdk/share/wasi-sysroot/ -nostartfiles -Wl,--no-entry,--import-memory -o stack.wasm stack.c
+wasm-opt -Os -o stack.opt.wasm stack.wasm
+wasm2wat stack.opt.wasm > stack.opt.wat
+sed -e'$ i (export "global" (global 0))' stack.opt.wat > stack.mod.wat
+wat2wasm stack.mod.wat > stack.mod.wasm
+deno run --allow-read /home/runner/work/is-mix-wasm-instance-danger/is-mix-wasm-instance-danger/03_stack/run.ts
+[33m58368[39m [33m58368[39m
+[33m50176[39m [33m50176[39m
+[33m41984[39m [33m41984[39m
+[33m33792[39m [33m33792[39m
+[33m25600[39m [33m25600[39m
+[33m17408[39m [33m17408[39m
+[33m9216[39m [33m9216[39m
+[33m1024[39m [33m1024[39m
+[33m-7168[39m [33m-7168[39m
+make: Leaving directory '/home/runner/work/is-mix-wasm-instance-danger/is-mix-wasm-instance-danger/03_stack'

@@ -1,0 +1,12 @@
+make: Entering directory '/home/runner/work/is-mix-wasm-instance-danger/is-mix-wasm-instance-danger/01_const'
+wat2wasm -o a.wasm a.wat
+deno run --allow-read /home/runner/work/is-mix-wasm-instance-danger/is-mix-wasm-instance-danger/01_const/run.ts
+Uint8Array(8) [
+  [33m0[39m, [33m0[39m, [33m0[39m, [33m0[39m,
+  [33m0[39m, [33m0[39m, [33m0[39m, [33m0[39m
+]
+Uint8Array(8) [
+  [33m72[39m, [33m69[39m, [33m76[39m, [33m76[39m,
+  [33m79[39m,  [33m0[39m,  [33m0[39m,  [33m0[39m
+]
+make: Leaving directory '/home/runner/work/is-mix-wasm-instance-danger/is-mix-wasm-instance-danger/01_const'

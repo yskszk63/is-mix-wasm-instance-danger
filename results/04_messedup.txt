@@ -1,0 +1,9 @@
+make: Entering directory '/home/runner/work/is-mix-wasm-instance-danger/is-mix-wasm-instance-danger/04_messedup'
+clang --target=wasm32-wasi --sysroot=/opt/wasi-sdk/share/wasi-sysroot/ -nostartfiles -Wl,--no-entry,--import-memory -o lib.wasm lib.c
+wasm-opt -Os -o lib.opt.wasm lib.wasm
+clang --target=wasm32-wasi --sysroot=/opt/wasi-sdk/share/wasi-sysroot/ -nostartfiles -Wl,--no-entry,--import-memory -o main.wasm main.c
+wasm-opt -Os -o main.opt.wasm main.wasm
+deno run --allow-read ./run.ts
+💩!!
+rm lib.wasm main.wasm
+make: Leaving directory '/home/runner/work/is-mix-wasm-instance-danger/is-mix-wasm-instance-danger/04_messedup'
