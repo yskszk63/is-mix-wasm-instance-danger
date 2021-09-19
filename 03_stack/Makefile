@@ -1,5 +1,6 @@
+WASI_SYSROOT=/opt/wasi-sdk/wasi-sysroot
 CC = clang
-CFLAGS = --target=wasm32-wasi --sysroot=/opt/wasi-sdk/wasi-sysroot -nostartfiles -Wl,--no-entry
+CFLAGS = --target=wasm32-wasi --sysroot=$(WASI_SYSROOT) -nostartfiles -Wl,--no-entry,--import-memory
 
 .PHONY: all
 all: run
